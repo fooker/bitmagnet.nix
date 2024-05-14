@@ -4,7 +4,7 @@ It provides a full-mesh VPN network using [wireguard](https://www.wireguard.com)
 
 ## Usage
 Import `./module/` in you config or use the `nixosModules.bitmagnet` flake output.
-See (`example.nix`)[./example.nix] for a usage example.
+See [`example.nix`](./example.nix) for a usage example.
 
 ## Contributing
 We welcome contributions from the community to help improve Photonic.
