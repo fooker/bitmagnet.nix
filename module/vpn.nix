@@ -11,6 +11,8 @@ let
 
 in {
   options.bitmagnet.vpn = {
+    enable = mkEnableOption "Bitmagnet VPN service";
+
     name = mkOption {
       type = types.enum (attrNames cfg.vpn.peers);
       default = config.networking.hostName;
@@ -104,7 +106,7 @@ in {
     };
   };
 
-  config = mkIf (cfg.enable) {
+  config = mkIf (cfg.vpn.enable) {
     systemd.network = {
       netdevs."50-bitmagnet" = {
         netdevConfig = {
