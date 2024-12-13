@@ -120,11 +120,9 @@ in {
 
         wireguardPeers = mapAttrsToList
           (_: peer: {
-            wireguardPeerConfig = {
-              AllowedIPs = [ peer.address ];
-              Endpoint = mkIf (peer.endpoint != null) "${peer.endpoint.address}:${toString peer.endpoint.port}";
-              PublicKey = peer.publicKey;
-            };
+            AllowedIPs = [ peer.address ];
+            Endpoint = mkIf (peer.endpoint != null) "${peer.endpoint.address}:${toString peer.endpoint.port}";
+            PublicKey = peer.publicKey;
           })
           (filterAttrs (name: _: name != cfg.vpn.name) cfg.vpn.peers);
       };
